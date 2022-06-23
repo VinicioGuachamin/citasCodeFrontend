@@ -1,0 +1,60 @@
+<div class="container" style="padding-top: 3%">
+  <div class="row">
+    <div class="col-md-12" style="text-align: end">
+
+      <button type="submit" class="btn btn-success" (click)="GoNuevaCita()">Nueva Cita</button>
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="form-group">
+        <label for="exampleInputPassword1">Ingrese su Placa</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="placaInput">
+      </div>
+
+      <button type="submit" class="btn btn-primary" (click)="Buscar()">Buscar</button>
+
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="numPlacas > 0">
+  <div class="row">
+    <div class="col-md-12">
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Placa</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Estado</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of citas">
+          <th>{{item.Id}}</th>
+          <td>{{item.Placa}}</td>
+          <td>{{item.Fecha}}</td>
+          <td>{{item.Estado}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="numPlacas == 0">
+  <div class="row">
+    <div class="col-md-12">
+
+      <p>No tiene citas </p>
+
+    </div>
+  </div>
+</div>
